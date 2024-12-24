@@ -1,19 +1,24 @@
-import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import axios from 'axios';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { SearchQueryDto } from './dto/search-query.dto';
-import { SearchResponse, YouTubeVideo } from './interfaces/youtube-response.interface';
+import { ConfigService } from '@nestjs/config';
+import {
+  SearchResponse,
+  YouTubeVideo,
+} from './interfaces/youtube-response.interface';
+import axios from 'axios';
 
 @Injectable()
-export class YouTubeService {
+export class YoutubeService {
   private readonly apiKey: string;
   private readonly baseUrl: string;
   private readonly defaultMaxResults: number;
 
   constructor(private readonly configService: ConfigService) {
-    this.apiKey = this.configService.get<string>('youtube.apiKey');
-    this.baseUrl = this.configService.get<string>('youtube.baseUrl');
-    this.defaultMaxResults = this.configService.get<number>('youtube.maxResults');
+    this.apiKey = this.configService.get<string>('YOUTUBE_API_KEY');
+    this.baseUrl = this.configService.get<string>('BASE_URL');
+    this.defaultMaxResults = this.configService.get<number>(
+      'YOUTUBE_MAX_RESULTS',
+    );
   }
 
   async search(query: SearchQueryDto): Promise<SearchResponse> {

@@ -1,13 +1,13 @@
-import { Controller, Get, Query, ValidationPipe } from '@nestjs/common';
-import { YouTubeService } from './youtube.service';
+import { Controller, Get, Query, Req, ValidationPipe } from '@nestjs/common';
+import { YoutubeService } from './youtube.service';
 import { SearchQueryDto } from './dto/search-query.dto';
 import { SearchResponse } from './interfaces/youtube-response.interface';
 
-@Controller('search')
-export class YouTubeController {
-  constructor(private readonly youtubeService: YouTubeService) {}
+@Controller('youtube')
+export class YoutubeController {
+  constructor(private youtubeService: YoutubeService) {}
 
-  @Get()
+  @Get('search')
   async search(
     @Query(new ValidationPipe({ transform: true })) query: SearchQueryDto,
   ): Promise<SearchResponse> {

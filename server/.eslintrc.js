@@ -10,6 +10,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
+  endOfLine: 'auto',
   root: true,
   env: {
     node: true,

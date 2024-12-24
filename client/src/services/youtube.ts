@@ -1,7 +1,5 @@
-import axios from 'axios';
-import type { SearchParams, SearchResponse } from '../types/youtube';
-
-const API_URL = 'http://localhost:3000';
+import axios from "axios";
+import type { SearchParams, SearchResponse } from "../types/youtube";
 
 export const searchVideos = async ({
   q,
@@ -14,6 +12,10 @@ export const searchVideos = async ({
     maxResults: maxResults.toString(),
   });
 
-  const { data } = await axios.get<SearchResponse>(`${API_URL}/search?${params}`);
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  const { data } = await axios.get<SearchResponse>(
+    `${apiUrl}/youtube/search?${params}`
+  );
   return data;
 };
