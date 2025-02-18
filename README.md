@@ -1,7 +1,7 @@
 # Server .env
 ```
 YOUTUBE_API_KEY=
-YOUTUBE_MAX_RESULTS=10
+YOUTUBE_MAX_RESULTS=
 BASE_URL=
 ```
 # Client .env
