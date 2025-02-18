@@ -1,8 +1,8 @@
 # Server .env
 ```
-YOUTUBE_API_KEY=AIzaSyBq4tMUEWYPzYZ24_jyh7PjrHvQmiWrFKc
+YOUTUBE_API_KEY=
 YOUTUBE_MAX_RESULTS=10
-BASE_URL=https://www.googleapis.com/youtube/v3
+BASE_URL=
 ```
 # Client .env
 ```
